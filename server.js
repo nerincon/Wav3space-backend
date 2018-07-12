@@ -17,7 +17,7 @@ app.use(session({
   secret: process.env.SECRET_KEY || 'dev',
   resave: true,
   saveUninitialized: false,
-  cookie: {maxAge: 6000000, domain: 'localhost', secure: false, sameSite: false, httpOnly: false}
+  cookie: {maxAge: 60000000, domain: 'localhost', secure: false, sameSite: false, httpOnly: false}
 }))
 
 // var open_pages = ['/', '/login', '/signup', '/logout', '/api/allbandsmain', '/api/bandartists/:bandname']
