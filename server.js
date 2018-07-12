@@ -4,7 +4,9 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 var pgp = require('pg-promise')()
-const db = pgp({database: 'wav3space', user: 'postgres'})
+const db = pgp(`postgres://addfccnxqqycer:2d32d95b95b1975376b2c770e8da5a3e453ae8a2ac156d1afdcf46253de23341@ec2-107-22-169-45.compute-1.amazonaws.com:5432/d2njaiearc98ng
+`)
+
 const session = require('express-session')
 const passhelper = require('pbkdf2-helpers')
 
@@ -42,6 +44,7 @@ app.get('/api/bandartists/:bandname', (req, res, next) => {
 })
 
 app.get('/api/allbandsmain', (req, res, next) => {
+  console.log('fuckkkkkkkkk this shitttt')
   db.any(`SELECT * FROM bandpics`)
     .then(result => res.json(result))
     .catch(next)
@@ -108,10 +111,6 @@ app.post('/add/bandartist', (req, res, next) => {
   } else {
     res.send('Need to put all information')
   }
-})
-
-app.get('*', function (req, res) {
-  res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 })
 
 app.listen(5000, function () {
