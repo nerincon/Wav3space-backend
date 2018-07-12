@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const path = require('path')
+// const path = require('path')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 var pgp = require('pg-promise')()
@@ -113,6 +113,6 @@ app.post('/add/bandartist', (req, res, next) => {
   }
 })
 
-app.listen(5000, function () {
-  console.log('Listening on port 5000')
+app.listen(process.env.PORT || 5000, function () {
+  console.log(`Listening on port ${process.env.PORT || 5000}`)
 })
