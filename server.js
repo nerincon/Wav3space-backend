@@ -101,7 +101,7 @@ app.post('/add/bandartist', (req, res, next) => {
   let artistrole = req.body.artistrole
   let artistimg = req.body.artistimg
   let artistbio = req.body.artistbio
-  if (artistname && artistrole && artistimg, artistbio) {
+  if (artistname && artistrole && artistimg && artistbio) {
     db.one(`INSERT INTO artists VALUES (default, $1, $2, $3, $4, $5) returning *`, [bandname, artistname, artistrole, artistimg, artistbio])
       .then(result => res.json(result))
       .catch(next)
