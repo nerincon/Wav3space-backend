@@ -1,0 +1,30 @@
+{
+  "name": "wav3space-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "nodemon": "^1.18.1",
+    "pbkdf2-helpers": "^1.1.1",
+    "pg-promise": "^8.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nerincon/Wav3space-backend.git"
+  },
+  "author": "Nelson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nerincon/Wav3space-backend/issues"
+  },
+  "homepage": "https://github.com/nerincon/Wav3space-backend#readme"
+}
