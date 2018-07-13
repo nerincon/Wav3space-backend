@@ -1,6 +1,5 @@
 if (process.env.NODE_ENV === 'production') {
-  module.exports = `postgres://addfccnxqqycer:2d32d95b95b1975376b2c770e8da5a3e453ae8a2ac156d1afdcf46253de23341@ec2-107-22-169-45.compute-1.amazonaws.com:5432/d2njaiearc98ng
-    `
+  module.exports = `postgres://pswbzunrfeewcj:6b93b542c2c95f0c3560410c25c1f9b7e2f4794c610c12ced8193d436385c06b@ec2-54-235-66-24.compute-1.amazonaws.com:5432/dc4g6dnv27e92p`
 } else {
   module.exports = {database: 'wav3space', user: 'postgres'}
 }
