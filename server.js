@@ -49,6 +49,14 @@ app.get('/api/allbandsmain', (req, res, next) => {
     .catch(next)
 })
 
+app.get('/api/bandmainpic/:bandname', (req, res, next) => {
+  let bandname = req.params.bandname
+  let bandnameconfg = bandname.toString()
+  db.any('SELECT main_image FROM bandpics WHERE bandname = $1', [bandnameconfg])
+    .then(result => res.json(result))
+    .catch(next)
+})
+
 app.get('/bandinfo', (req, res, next) => {
   let id = req.query.id
   db.one('SELECT * FROM bands WHERE id = $1', [id])
@@ -70,6 +78,14 @@ app.post('/bands/signup', (req, res, next) => {
   } else {
     res.send('Need to put all information')
   }
+})
+
+app.post('/api/allbandsmain', (req, res, next) => {
+  let bandname = req.body.bandname
+  let mainpic = req.body.mainpic
+  db.one(`INSERT INTO bandpics VALUES (default, $1, $2) returning *`, [bandname, mainpic])
+    .then(result => res.json(result))
+    .catch(next)
 })
 
 app.post('/login', function (req, res, next) {
