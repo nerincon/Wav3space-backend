@@ -6,6 +6,7 @@ const cors = require('cors')
 var pgp = require('pg-promise')()
 const uri = require('./dburi')
 const db = pgp(uri)
+const http = require('http')
 
 const session = require('express-session')
 const passhelper = require('pbkdf2-helpers')
@@ -32,6 +33,10 @@ app.use(session({
 //     res.redirect('/login')
 //   }
 // })
+
+setInterval(function () {
+  http.get('http://wav3space.herokuapp.com')
+}, 300000) // wake up app every 5 minutes - This is a test. if backend goes to sleep will it call my func to get frontend?
 
 app.get('/api/bandartists/:bandname', (req, res, next) => {
   let bandname = req.params.bandname
