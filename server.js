@@ -35,7 +35,7 @@ app.use(session({
 // })
 
 setInterval(function () {
-  http.get('http://wav3space.herokuapp.com')
+  http.get('wav3space.herokuapp.com')
 }, 300000) // wake up app every 5 minutes - This is a test. if backend goes to sleep will it call my func to get frontend?
 
 app.get('/api/bandartists/:bandname', (req, res, next) => {
